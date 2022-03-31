@@ -1,0 +1,18 @@
+version: "3.6"
+
+services:
+  db:
+    container_name: "db"
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
+    volumes:
+      # 設定ファイルのマウント
+      - ./db/conf.d:/etc/mysql/conf.d:cached
+      # 初期データのマウント
+      - ./db/initdb.d:/docker-entrypoint-initdb.d:cached
+    tty: true
+    env_file:
+      - ./.env.sample
