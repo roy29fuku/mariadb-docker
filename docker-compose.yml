@@ -14,9 +14,9 @@ services:
       # 初期データのマウント
       - ./db/initdb.d:/docker-entrypoint-initdb.d:cached
       # データの永続化
-      - db-data-volume:/var/lib/mysql
+      - db:/var/lib/mysql
     tty: true
     env_file:
       - ./.env.sample
 volumes:
-  db-data-volume:
+  db:
