@@ -9,10 +9,6 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      # 設定ファイルのマウント
-      - ./db/conf.d:/etc/mysql/conf.d:cached
-      # 初期データのマウント
-      - ./db/initdb.d:/docker-entrypoint-initdb.d:cached
       # データの永続化
       - db:/var/lib/mysql
     tty: true
