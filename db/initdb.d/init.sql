@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS sample;
 CREATE DATABASE sample;
 USE sample;
 
+GRANT CREATE ON sample.* to user;
+
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
